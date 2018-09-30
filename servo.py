@@ -22,7 +22,7 @@ def right(p):
 
 def center(p):
     try:
-        p.ChangeDutyCycle(2.5)
+        p.ChangeDutyCycle(7.5)
         time.sleep(0.5)
     except KeyboardInterrupt:
         GPIO.cleanup()
@@ -30,7 +30,7 @@ def center(p):
 
 def left(p):
     try:
-        p.ChangeDutyCycle(2.5)
+        p.ChangeDutyCycle(12.5)
         time.sleep(0.5)
     except KeyboardInterrupt:
         GPIO.cleanup()
