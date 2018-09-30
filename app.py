@@ -27,6 +27,7 @@ def right():
     """
 
     servo.right(p)
+    p.stop()
     return render_template('home.html')
 
 
@@ -38,6 +39,7 @@ def center():
         LED -- Encendido/apagado
     """
     servo.center(p)
+    p.stop()
     return render_template('home.html')
 
 
@@ -49,11 +51,10 @@ def left():
         LED -- Encendido/apagado
     """
     servo.left(p)
-    print("IZQUIERDA")
+    p.stop()
     return render_template('home.html')
 
 
 if __name__ == '__main__':
     APP.run(host='0.0.0.0', debug=True)
-    p.stop()
 
