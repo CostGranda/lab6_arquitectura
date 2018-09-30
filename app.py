@@ -5,12 +5,15 @@ import servo
 
 APP = Flask(__name__)
 
+p = servo.setup() # Configuración
+p.start(2.5) # Arranque
+
 @APP.route('/')
 def index():
-    """Ruta principal
-
+    """Ruta Principal
+    
     Returns:
-        LED -- Encendido/apagado
+        Template -- Página principal/home
     """
     return render_template('home.html')
 
@@ -22,9 +25,8 @@ def right():
     Returns:
         LED -- Encendido/apagado
     """
-    servo.correr()
 
-    print("Derecha")
+    servo.right(p)
     return render_template('home.html')
 
 
@@ -35,7 +37,7 @@ def center():
     Returns:
         LED -- Encendido/apagado
     """
-    print("CENTROO")
+    servo.center(p)
     return render_template('home.html')
 
 
@@ -46,9 +48,12 @@ def left():
     Returns:
         LED -- Encendido/apagado
     """
+    servo.left(p)
     print("IZQUIERDA")
-    return 'I'
+    return render_template('home.html')
 
 
 if __name__ == '__main__':
     APP.run(host='0.0.0.0', debug=True)
+    p.stop()
+
